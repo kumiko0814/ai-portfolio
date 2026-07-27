@@ -304,6 +304,29 @@
   .cta .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.28)}
 
   footer{padding:40px 0 60px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:64px}
+
+  /* 常時表示のLINE追加バー（スクロールしても下に固定） */
+  body{padding-bottom:104px}
+  .linebar{position:fixed;left:0;right:0;bottom:0;z-index:1000;display:flex;align-items:center;gap:12px;
+    background:#06C755;color:#fff;text-decoration:none;font-family:var(--font-gothic);
+    padding:11px 16px;padding-bottom:calc(11px + env(safe-area-inset-bottom,0px));
+    box-shadow:0 -6px 26px rgba(0,0,0,.18);transition:background .2s}
+  .linebar:hover{background:#05b34d}
+  .linebar-badge{flex:none;background:#fff;color:#06C755;font-weight:900;font-size:.72rem;letter-spacing:.04em;
+    padding:6px 9px;border-radius:9px;line-height:1}
+  .linebar-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+  .linebar-txt b{font-size:1rem;font-weight:800}
+  .linebar-txt small{font-size:.73rem;opacity:.96;font-weight:600}
+  .linebar-cta{flex:none;margin-left:auto;background:#fff;color:#06C755;font-weight:800;font-size:.9rem;
+    padding:10px 18px;border-radius:999px;white-space:nowrap;transition:transform .15s}
+  .linebar:hover .linebar-cta{transform:translateY(-1px)}
+  @media (max-width:480px){
+    .linebar-txt small{font-size:.69rem}
+    .linebar-cta{display:none}
+    .linebar-txt b{font-size:.98rem}
+    .linebar{gap:10px;padding-left:13px;padding-right:13px}
+    .linebar::after{content:"→";flex:none;margin-left:auto;font-size:1.3rem;font-weight:800}
+  }
   footer p{margin:0 0 6px}
 
   /* Reveal only hides when JS has explicitly enabled it (body.anim); otherwise content is always visible */
@@ -897,6 +920,15 @@
     <p>このページは確認用の非公開ドラフトです。掲載しているクライアント名はすべて伏せ、各ツールの画面はダミーデータで再現しています。</p>
   </div>
 </footer>
+
+<a class="linebar" href="https://lin.ee/XH2fH1T" target="_blank" rel="noopener" aria-label="LINE追加はこちら 8月3日勉強会に参加">
+  <span class="linebar-badge">LINE</span>
+  <span class="linebar-txt">
+    <b>LINE追加はこちら</b>
+    <small>8月3日（月）21:00 勉強会に参加／アーカイブ配信の可能性も</small>
+  </span>
+  <span class="linebar-cta">追加する →</span>
+</a>
 
 <script>
   (function(){
